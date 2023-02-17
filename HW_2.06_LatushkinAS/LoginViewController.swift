@@ -10,24 +10,19 @@ import UIKit
 final class LoginViewController: UIViewController {
     
     // MARK: - IB Outlets
-    @IBOutlet var logInButton: UIButton!
-    @IBOutlet var forgotPasButton: UIButton!
-    @IBOutlet var forgotUnButton: UIButton!
     @IBOutlet var nameInput: UITextField!
     @IBOutlet var passInput: UITextField!
     
     // MARK: - Public proportes
-    let checkName = "user"
-    let checkPass = "pass"
+    private let checkUser = "user"
+    private let checkPass = "pass"
     
     // MARK: - Life Cycles Methods
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        welcomeVC.hello = nameInput.text
+        guard let welcomeVC = segue.destination as? WelcomeViewController else {
+            return
+        }
+        welcomeVC.hello = checkUser
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -36,28 +31,36 @@ final class LoginViewController: UIViewController {
     }
     
     // MARK: - IB Action
-    @IBAction func fogotUN() {
-        alertInfo(message: "Your username is '\(checkName)'")
-    }
-    
-    @IBAction func fogotPass() {
-        alertInfo(message: "Your password is '\(checkPass)'")
-    }
-    
-    @IBAction func logInButtom() {
-        guard nameInput.text == checkName && passInput.text == checkPass else {
-            alertInfo(message: "Please, enter correct login or password")
-            passInput.text = ""
+    @IBAction func logInButton() {
+        guard nameInput.text == checkUser, passInput.text == checkPass else {
+            alertInfo(
+                title: "Invalid login or password",
+                message: "Please, enter correct login and password",
+                textField: passInput
+            )
             return
         }
+        performSegue(withIdentifier: "openWelcomeVC", sender: nil)
+    }
+    
+    @IBAction func forgotRegisterData(_ sender: UIButton) {
+        sender.tag == 0
+        ? alertInfo(title: "Error", message: "Your name is \(checkUser)")
+        : alertInfo(title: "Error", message: "Your password is \(checkPass)")
+    }
+    
+    @IBAction func unwind(Segue: UIStoryboardSegue) {
+        nameInput.text = ""
+        passInput.text = ""
     }
     
     // MARK: - Private methods
-    private func alertInfo(message: String) {
-        let alert = UIAlertController(title: "Attention", message: message, preferredStyle: .alert)
+    private func alertInfo(title: String, message: String, textField: UITextField? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default) {_ in
+            textField?.text = ""
+        }
         present(alert, animated: true)
-        let alertAction = UIAlertAction(title: "OK", style: .default)
         alert.addAction(alertAction)
     }
-    
 }

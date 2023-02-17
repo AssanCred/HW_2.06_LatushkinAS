@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Nzu-M1-Xx5">
-                                <rect key="frame" x="16" y="100" width="288" height="190"/>
+                                <rect key="frame" x="16" y="157" width="288" height="190"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="350-oW-pbT">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="34"/>
@@ -34,8 +34,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Log in"/>
                                         <connections>
-                                            <action selector="logInButtom" destination="BYZ-38-t0r" eventType="touchUpInside" id="1aZ-51-Qm3"/>
-                                            <segue destination="NVU-cY-7qB" kind="presentation" id="aPE-92-90l"/>
+                                            <action selector="logInButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="1aZ-51-Qm3"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1t5-aP-0mX">
@@ -44,17 +43,21 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jt0-Bv-Sbe">
                                                 <rect key="frame" x="0.0" y="0.0" width="139" height="34"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Fogot user name"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Forgot user name">
+                                                    <fontDescription key="titleFontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                                                </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="fogotUN" destination="BYZ-38-t0r" eventType="touchUpInside" id="YtT-2o-JbD"/>
+                                                    <action selector="forgotRegisterData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JhQ-BW-gpi"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvW-aG-3VN">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvW-aG-3VN">
                                                 <rect key="frame" x="149" y="0.0" width="139" height="34"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Fogot password"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Forgot password">
+                                                    <fontDescription key="titleFontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                                                </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="fogotPass" destination="BYZ-38-t0r" eventType="touchUpInside" id="xcX-dY-W3F"/>
+                                                    <action selector="forgotRegisterData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eQy-FS-slo"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -67,16 +70,14 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nzu-M1-Xx5" secondAttribute="trailing" constant="16" id="87J-1Y-o9B"/>
                             <constraint firstItem="350-oW-pbT" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0598592" id="C8x-tG-PEl"/>
-                            <constraint firstItem="Nzu-M1-Xx5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="dmp-ts-jak"/>
+                            <constraint firstItem="Nzu-M1-Xx5" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-32" id="QxH-4I-KmI"/>
                             <constraint firstItem="Nzu-M1-Xx5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="xUV-fX-Nb2"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="forgotPasButton" destination="nvW-aG-3VN" id="ecP-7s-I9w"/>
-                        <outlet property="forgotUnButton" destination="Jt0-Bv-Sbe" id="2OH-b3-3kB"/>
-                        <outlet property="logInButton" destination="9Ld-b3-Agn" id="JQw-FZ-KkY"/>
                         <outlet property="nameInput" destination="350-oW-pbT" id="jK8-A7-guB"/>
                         <outlet property="passInput" destination="zbd-QG-ub9" id="eS2-By-BW1"/>
+                        <segue destination="NVU-cY-7qB" kind="presentation" identifier="openWelcomeVC" id="xNd-MP-rB8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -91,7 +92,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8At-mP-O6L">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wellcom" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8At-mP-O6L">
                                 <rect key="frame" x="16" y="100" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
@@ -108,7 +109,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Log out"/>
                                 <connections>
-                                    <action selector="logOutButtom" destination="NVU-cY-7qB" eventType="touchUpInside" id="hBy-LZ-09P"/>
+                                    <segue destination="xtY-rc-iWF" kind="unwind" unwindAction="unwindWithSegue:" id="tWN-Fv-1Um"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -131,6 +132,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPw-5q-Qn1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="xtY-rc-iWF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="761.8604651162791" y="2.5751072961373391"/>
         </scene>

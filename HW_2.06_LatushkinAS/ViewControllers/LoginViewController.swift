@@ -10,19 +10,17 @@ import UIKit
 final class LoginViewController: UIViewController {
     
     // MARK: - IB Outlets
-    @IBOutlet var nameInput: UITextField!
-    @IBOutlet var passInput: UITextField!
+    @IBOutlet var nameInputTextField: UITextField!
+    @IBOutlet var passInputTextField: UITextField!
     
-    // MARK: - Public proportes
-    private let checkUser = "user"
-    private let checkPass = "pass"
+    // MARK: - Private properties
+    private var checkUser = User.getUserInfo()
     
     // MARK: - Life Cycles Methods
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeViewController else {
-            return
-        }
-        welcomeVC.hello = checkUser
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        nameInputTextField.text = checkUser.login
+        passInputTextField.text = checkUser.password
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -30,13 +28,32 @@ final class LoginViewController: UIViewController {
         view.endEditing(true)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let tabBarVC = segue.destination as? UITabBarController else {
+            return
+        }
+        guard let viewControllers = tabBarVC.viewControllers else { return }
+        
+        viewControllers.forEach {
+            if let welcomeVC = $0 as? WelcomeViewController {
+                welcomeVC.user = checkUser
+            } else if let navigationVC = $0 as? UINavigationController {
+                let aboutMeVC = navigationVC.topViewController
+                guard let aboutMeVC = aboutMeVC as? AboutMeViewController else {
+                    return
+                }
+                aboutMeVC.user = checkUser
+            }
+        }
+    }
+    
     // MARK: - IB Action
     @IBAction func logInButton() {
-        guard nameInput.text == checkUser, passInput.text == checkPass else {
+        guard nameInputTextField.text == checkUser.login, passInputTextField.text == checkUser.password else {
             alertInfo(
                 title: "Invalid login or password",
                 message: "Please, enter correct login and password",
-                textField: passInput
+                textField: passInputTextField
             )
             return
         }
@@ -45,13 +62,13 @@ final class LoginViewController: UIViewController {
     
     @IBAction func forgotRegisterData(_ sender: UIButton) {
         sender.tag == 0
-        ? alertInfo(title: "Error", message: "Your name is \(checkUser)")
-        : alertInfo(title: "Error", message: "Your password is \(checkPass)")
+        ? alertInfo(title: "Error", message: "Your name is \(checkUser.login)")
+        : alertInfo(title: "Error", message: "Your password is \(checkUser.password)")
     }
     
     @IBAction func unwind(Segue: UIStoryboardSegue) {
-        nameInput.text = ""
-        passInput.text = ""
+        nameInputTextField.text = ""
+        passInputTextField.text = ""
     }
     
     // MARK: - Private methods

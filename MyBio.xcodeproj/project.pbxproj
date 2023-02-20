@@ -10,7 +10,8 @@
 		884E86AF29A0F59300A98576 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884E86AE29A0F59300A98576 /* AboutMeViewController.swift */; };
 		884E86B129A0F62D00A98576 /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884E86B029A0F62D00A98576 /* MoreInfoViewController.swift */; };
 		884E86B329A0F79C00A98576 /* TabBarSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884E86B229A0F79C00A98576 /* TabBarSettingViewController.swift */; };
-		884E86B729A1027700A98576 /* Persone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884E86B629A1027700A98576 /* Persone.swift */; };
+		884E86B729A1027700A98576 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884E86B629A1027700A98576 /* User.swift */; };
+		885F8BC929A3178100CB12BD /* ExtansionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885F8BC829A3178100CB12BD /* ExtansionViewController.swift */; };
 		88730486299BC262006EA009 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88730485299BC262006EA009 /* WelcomeViewController.swift */; };
 		88D6392E299AB6E8008AB4A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D6392D299AB6E8008AB4A1 /* AppDelegate.swift */; };
 		88D63930299AB6E8008AB4A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D6392F299AB6E8008AB4A1 /* SceneDelegate.swift */; };
@@ -24,7 +25,8 @@
 		884E86AE29A0F59300A98576 /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
 		884E86B029A0F62D00A98576 /* MoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoViewController.swift; sourceTree = "<group>"; };
 		884E86B229A0F79C00A98576 /* TabBarSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarSettingViewController.swift; path = HW_2.06_LatushkinAS/ViewControllers/TabBarSettingViewController.swift; sourceTree = SOURCE_ROOT; };
-		884E86B629A1027700A98576 /* Persone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Persone.swift; path = HW_2.06_LatushkinAS/ViewControllers/Persone.swift; sourceTree = SOURCE_ROOT; };
+		884E86B629A1027700A98576 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = HW_2.06_LatushkinAS/ViewControllers/User.swift; sourceTree = SOURCE_ROOT; };
+		885F8BC829A3178100CB12BD /* ExtansionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtansionViewController.swift; sourceTree = "<group>"; };
 		88730485299BC262006EA009 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		88D6392A299AB6E8008AB4A1 /* MyBio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D6392D299AB6E8008AB4A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +52,7 @@
 		884E86A829A0E2E100A98576 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				884E86B629A1027700A98576 /* Persone.swift */,
+				884E86B629A1027700A98576 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -63,6 +65,7 @@
 				884E86AE29A0F59300A98576 /* AboutMeViewController.swift */,
 				884E86B029A0F62D00A98576 /* MoreInfoViewController.swift */,
 				884E86B229A0F79C00A98576 /* TabBarSettingViewController.swift */,
+				885F8BC829A3178100CB12BD /* ExtansionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -189,10 +192,11 @@
 				884E86AF29A0F59300A98576 /* AboutMeViewController.swift in Sources */,
 				88730486299BC262006EA009 /* WelcomeViewController.swift in Sources */,
 				884E86B129A0F62D00A98576 /* MoreInfoViewController.swift in Sources */,
-				884E86B729A1027700A98576 /* Persone.swift in Sources */,
+				884E86B729A1027700A98576 /* User.swift in Sources */,
 				884E86B329A0F79C00A98576 /* TabBarSettingViewController.swift in Sources */,
 				88D6392E299AB6E8008AB4A1 /* AppDelegate.swift in Sources */,
 				88D63930299AB6E8008AB4A1 /* SceneDelegate.swift in Sources */,
+				885F8BC929A3178100CB12BD /* ExtansionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

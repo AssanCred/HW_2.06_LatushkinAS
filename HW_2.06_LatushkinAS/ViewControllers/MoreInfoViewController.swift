@@ -8,22 +8,17 @@
 import UIKit
 
 class MoreInfoViewController: UIViewController {
-
+    
+    @IBOutlet var userBioInfo: UITextView!
+    var user: User!
+    
+    @IBOutlet var moreInfoLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.addVerticalGradient()
+        title = "\(user.person.fullName) Bio"
+        userBioInfo.backgroundColor = .clear
+        userBioInfo.textColor = .white
+        userBioInfo.text = user.person.moreBio
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
